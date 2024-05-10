@@ -332,9 +332,16 @@
 
     \vfill
 
-    \doublespacing
-    \MakeTextUppercase{\@title}
-
+    \singlespacing
+    \@ifundefined{@subtitle}
+    {
+      \MakeTextUppercase{\@title}
+    }
+    {
+      \MakeTextUppercase{\@title}: \\
+      \MakeTextUppercase{\@subtitle}  
+    }
+    
     \vfill
     
     \singlespacing
@@ -356,6 +363,7 @@
 \def\@author{[Your name]}
 \def\title#1{\gdef\@title{#1}}
 \def\@title{Title of Paper}
+\def\subtitle#1{\gdef\@subtitle{#1}}
 \def\institution#1{\gdef\@institution{#1}}
 \def\@institution{[Name of Institution]}
 \def\professor#1{\gdef\@professor{#1}}
